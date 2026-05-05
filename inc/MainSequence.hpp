@@ -7,6 +7,7 @@
 #include "MyRobotSafetyProperties.hpp"
 #include "ControlSystem.hpp"
 #include <eeros/sequencer/Wait.hpp>
+#include <eeros/sequencer/Monitor.hpp>
 
 class MainSequence : public eeros::sequencer::Sequence
 {
@@ -29,9 +30,9 @@ public:
         while (eeros::sequencer::Sequencer::running)
         {
             sleep(1.0);
-            log.info() << cs.myGain.getOut().getSignal();
+            log.info() << cs.qdMax.getOut().getSignal();
         }
-        return 0;
+                return 0;
     }
 
 private:
@@ -40,6 +41,7 @@ private:
     MyRobotSafetyProperties &sp;
 
     eeros::sequencer::Wait sleep;
+    
 };
 
 #endif // MAINSEQUENCE_HPP_
