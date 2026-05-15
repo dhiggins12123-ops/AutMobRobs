@@ -30,7 +30,8 @@ public:
         while (eeros::sequencer::Sequencer::running)
         {
             sleep(1.0);
-            log.info() << cs.qdMax.getOut().getSignal();
+            log.info() << cs.fwKinOdom.getOutGrR().getSignal();
+            log.info() << cs.fwKinOdom.getOutPhi().getSignal();
         }
                 return 0;
     }
